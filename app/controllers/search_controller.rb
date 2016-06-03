@@ -7,8 +7,8 @@ class SearchController < ApplicationController
     end
 
     def create
-        binding.pry
         username = SearchForm.new(search_params)
+        
     end
 
     private
