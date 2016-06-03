@@ -1,3 +1,42 @@
 <% content_for :title do %>Home<% end %>
 
-<h1>Welcome!</h1>
+<% content_for :application_footer do %>
+    <%= render 'layouts/librarian' %>
+<% end %>
+
+<div class="container">
+    
+    <div>
+        <h1 class="center-align">Hey</h1>
+        <h5 class="center-align">Search for a GoodReads username. Get back a list of all the books they reads on GoodReads. And some other interesting stats.</h5>
+    </div>
+
+    <div class="row">
+
+<!--     <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12 m6 offset-m3">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+    </form> -->
+
+    <div class="col s12 m6 offset-m3">
+        <%= form_for @github_user_form, url: search_create_path do |f| %>
+            
+            <div class="row">
+                <div class="input-field col s12">
+                    <%= f.text_field :username%>
+                    <%= f.label :username %>
+                    <%= f.submit 'Submit', class: 'waves-effect waves-light btn' %>
+                </div>
+            </div>
+
+        <% end %>
+    </div> 
+    
+
+  </div>
+
+</div>

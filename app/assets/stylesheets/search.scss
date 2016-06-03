@@ -1,3 +1,44 @@
 // Place all the styles related to the search controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html { 
+  background: url(background2.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1, h2, h3, h4, h5 {
+    color: #ee6e73;
+}
+
+span.bottom {
+    position: absolute;
+   bottom: 0;
+   right: 0;
+}
+
+/* label color */
+.input-field label {
+    color: white;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: #ee6e73;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #ee6e73;
+    box-shadow: 0 1px 0 0 #ee6e73;
+}
+
+.btn {
+    background-color: #ee6e73;
+}
+
+#search_form_username {
+    color: white;
+}
