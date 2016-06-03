@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'search/new'
-  post 'search/create'
+  # get 'search/new'
+  # post 'search/create'
+
+  resources :searches
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
