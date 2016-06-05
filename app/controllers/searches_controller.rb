@@ -1,14 +1,16 @@
 require 'github_user.rb'
 
-class SearchController < ApplicationController
+class SearchesController < ApplicationController
 
     def index
-        @github_user_form = SearchForm.new
+        @search = Search.new
     end
 
     def create
-        username = SearchForm.new(search_params)
-        
+        binding.pry
+        username = Search.new(search_params)
+        books = username.query_or_api
+
     end
 
     private

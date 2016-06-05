@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160603173536) do
+ActiveRecord::Schema.define(version: 20160603204054) do
 
   create_table "searches", force: :cascade do |t|
     t.string   "username"
@@ -19,5 +19,7 @@ ActiveRecord::Schema.define(version: 20160603173536) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "searches", ["username"], name: "index_searches_on_username", unique: true
 
 end
