@@ -1,33 +1,32 @@
-<% content_for :title do %>Home<% end %>
-
-<% content_for :application_footer do %>
-    <%= render 'layouts/librarian' %>
-<% end %>
+<% content_for :title do %>Search Results<% end %>
 
 <div class="container">
-    
-    <div>
-        <h1 class="center-align">Hey</h1>
-        <h5 class="center-align">Search for a GoodReads username. Get back a list of all the books they reads on GoodReads. And some other interesting stats.</h5>
-    </div>
 
     <div class="row">
+    <% @books.each do |book| %>
+        
+            <div class="col s12 m6 l4">
+                <div class="card small">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="responsive-img activator" src="<%= book.image_url %>">
+                    </div>
+                    <div class="card-content">
+                        <span class="truncate card-title activator grey-text text-darken-4"><%= book.title %><i class="material-icons right">more_vert</i></span>
+                        <a target="_blank" href="<%= book.good_link %>">GoodReads</a> | 
+                        <a target="_blank" href="<%= book.amazon_link %>">Amazon</a>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4"><%= book.title %><i class="material-icons right">close</i></span>
+                        <p><b>Author: </b><%= book.author_name %></p>
+                        <p><b><%= book.title %></b> has <b><%= book.num_pages %></b>. It was published in <b><%= book.publication_year %></b> by <b><%= book.publisher %></b>. On GoodReads, it has a rating of <b><%= book.average_rating %></b></p>.
+                        <p><b>Other cool stats:</b></p>
+                        <p>For JeffReads users, there's been <%= book.searches.count %> users who've also read this book.</p>
 
-    <div class="col s12 m6 offset-m3">
-        <%= form_for @search do |f| %>
-            
-            <div class="row">
-                <div class="input-field col s12">
-                    <%= f.text_field :username%>
-                    <%= f.label :username %>
-                    <%= f.submit 'Submit', class: 'waves-effect waves-light btn' %>
+                    </div>
                 </div>
             </div>
-
-        <% end %>
-    </div> 
-    
-
-  </div>
+        
+    <% end %>
+    </div>
 
 </div>

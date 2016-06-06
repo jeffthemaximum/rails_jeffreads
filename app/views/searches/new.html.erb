@@ -1,2 +1,33 @@
-<h1>Search#new</h1>
-<p>Find me in app/views/search/new.html.erb</p>
+<% content_for :title do %>New Search<% end %>
+
+<% content_for :application_footer do %>
+    <%= render 'layouts/librarian' %>
+<% end %>
+
+<div class="container">
+    
+    <div>
+        <h1 class="center-align">Hey</h1>
+        <h5 class="center-align">Search for a GoodReads username. Get back a list of all the books they reads on GoodReads. And some other interesting stats.</h5>
+    </div>
+
+    <div class="row">
+
+    <div class="col s12 m6 offset-m3">
+        <%= form_for @search do |f| %>
+            
+            <div class="row">
+                <div class="input-field col s12">
+                    <%= f.text_field :username%>
+                    <%= f.label :username %>
+                    <%= f.submit 'Submit', class: 'waves-effect waves-light btn' %>
+                </div>
+            </div>
+
+        <% end %>
+    </div> 
+    
+
+  </div>
+
+</div>

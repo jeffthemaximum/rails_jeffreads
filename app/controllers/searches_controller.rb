@@ -3,18 +3,21 @@ require 'github_user.rb'
 class SearchesController < ApplicationController
 
     def index
+    end
+
+    def new
         @search = Search.new
     end
 
     def create
-        binding.pry
-        username = Search.new(search_params)
-        books = username.query_or_api
-
+        search = Search.new(search_params)
+        search.save
+        @books = search.query
+        render 'index'
     end
 
     private
         def search_params
-            params.require(:search_form).permit(:username)
+            params.require(:search).permit(:username)
         end
 end
